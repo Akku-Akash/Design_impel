@@ -1,0 +1,6 @@
+#container{
+    display: flex;
+}
+#sidebar{
+    width: 300px;
+}

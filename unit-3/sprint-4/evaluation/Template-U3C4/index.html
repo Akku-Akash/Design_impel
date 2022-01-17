@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home</title>
+    <link rel="stylesheet" href="./styles/main.css">
+  </head>
+
+  <body>
+    <div id="container">
+      <div id="sidebar">
+        <!--DO NOT CHANGE THIS ID's-->
+       <div id="side"></div>
+
+      </div>
+
+      <div id="main">
+        <div id="data"></div>
+        <div id="location1"></div>
+        <!--DO NOT CHANGE THIS ID's-->
+
+      </div>
+    </div>
+  </body>
+
+</html>
+<script type="module">
+import sidebar from "./components/sidebar.js"
+  var div1 = document.getElementById("side")
+  div1.innerHTML = sidebar()
+  import { apiCall, appendArticles } from "./scripts/main.js"
+  // var search = document.getElementById("search").addEventListener("")
+
+  var main = document.getElementById("data")
+  var location1 = document.getElementById("location1")
+  let response = apiCall("https://gnews.io/api/v4/search?q=apple&token=8083621f67df897aa0d53dcfe53ced03")
+  //console.log('response:', response)
+  response
+  .then((res)=>{
+     console.log('res:', res)
+     var articles = res.articles
+     appendArticles(articles, main,location1)
+    
+
+  })
+  .catch((er)=>{
+  console.log('er:', er)
+
+  })
+
+
+
+</script>

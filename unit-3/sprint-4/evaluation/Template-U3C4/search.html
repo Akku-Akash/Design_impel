@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <div id="main">
+      <!--No need to add sidebar here, directly display search results-->
+
+      <!-- show headline, description and image -->
+
+
+
+      Wrong -> <a href="/Users/jonny/Desktop/misc/jugnu-tester/template-U3C4/Template-U3C4/news.html"></a>
+
+
+      Correct -> <a href="/news.html"></a>
+
+
+    </div>
+  </body>
+
+</html>
+<script type="module">
+import sidebar from "./components/sidebar.js"
+var main = document.getElementById("main")
+main.innerHTML = sidebar()
+document.getElementById("sub").addEventListener("click", addnews)
+
+import { apiCall, appendArticles } from "./scripts/main.js"
+ function addnews(){
+  var serach = document.getElementById("search").value
+  console.log('serach:', serach)
+  var respo = apiCall("https://gnews.io/api/v4/search?q=tesla&token=8083621f67df897aa0d53dcfe53ced03")
+  //console.log('res:', res)
+  respo
+  .then((res)=>{
+    console.log('res:', res)
+
+  })
+  .catch((e)=>{
+    console.log('e:', e)
+
+  })
+
+ 
+ 
+
+ }
+  
+  
+</script>
