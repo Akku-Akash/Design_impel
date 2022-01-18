@@ -20,6 +20,7 @@
       <div id="main">
         <div id="already"></div>
         <div id="location1"></div>
+        <div id="location2"></div>
         <!--DO NOT CHANGE THIS ID's-->
 
       </div>
@@ -64,7 +65,7 @@ import sidebar from "./components/sidebar.js"
 
     
   var location1 = document.getElementById("location1")
-
+  var location2 = document.getElementById("location2")
 
    document.getElementById("sub").addEventListener("click", add)
    function add(){
@@ -75,7 +76,7 @@ import sidebar from "./components/sidebar.js"
   .then((res)=>{
      console.log('res:', res)
      var articles = res.articles
-     appendArticles(articles,main,location1)
+     appendArticles(articles,main,location1,location2)
     
 
   })
