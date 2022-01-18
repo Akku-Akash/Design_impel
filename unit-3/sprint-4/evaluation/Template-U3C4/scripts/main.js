@@ -15,8 +15,9 @@ async function apiCall(url) {
 }
 
 
-function appendArticles(articles, main, location1) {
+function appendArticles(articles, main, location1,location2) {
     articles.forEach((el)=>{
+
         var div = document.createElement("div")
         var img = document.createElement("img")
         img.src = el.image
@@ -24,6 +25,9 @@ function appendArticles(articles, main, location1) {
         h1.innerText = el.title
         div.append(h1,img)
         img.onclick = function (){
+       
+          
+         
            location1.innerHtml = null;
             var div1 = document.createElement("div")
             var head = document.createElement("h1")
@@ -33,10 +37,10 @@ function appendArticles(articles, main, location1) {
             var des = document.createElement("p")
             des.innerText = el.description
             div1.append(head,imag,des)
-            location1.append(div1)
+            location2.append(div1)
         }
         
-        main.append(div)
+        location1.append(div)
      
     })
     

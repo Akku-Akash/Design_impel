@@ -18,7 +18,7 @@
       </div>
 
       <div id="main">
-        <div id="data"></div>
+        <div id="already"></div>
         <div id="location1"></div>
         <!--DO NOT CHANGE THIS ID's-->
 
@@ -33,23 +33,59 @@ import sidebar from "./components/sidebar.js"
   div1.innerHTML = sidebar()
   import { apiCall, appendArticles } from "./scripts/main.js"
   // var search = document.getElementById("search").addEventListener("")
+  
+  
 
-  var main = document.getElementById("data")
+  
+  var already = document.getElementById('already')
+    let random = await fetch("https://gnews.io/api/v4/search?q=apple&token=9b5298791bd2fce35f2cee5d85d54093")
+    let rand = await random.json()
+    console.log('rand:', rand)
+    let det = rand.articles
+    alread(det)
+
+
+
+      function alread(det){
+        det.forEach(function(el){
+          var div = document.createElement("div")
+        var img = document.createElement("img")
+        img.src = el.image
+        var h1 = document.createElement("h1")
+        h1.innerText = el.title
+        div.append(h1,img)
+        already.append(div)
+        })
+        
+    }
+
+
+
+
+    
   var location1 = document.getElementById("location1")
-  let response = apiCall("https://gnews.io/api/v4/search?q=apple&token=8083621f67df897aa0d53dcfe53ced03")
-  //console.log('response:', response)
-  response
+
+
+   document.getElementById("sub").addEventListener("click", add)
+   function add(){
+    already.innerHTML = ""
+    var name = document.getElementById("search").value
+    let response = apiCall(`https://gnews.io/api/v4/search?q=${name}&token=9b5298791bd2fce35f2cee5d85d54093`)
+    response
   .then((res)=>{
      console.log('res:', res)
      var articles = res.articles
-     appendArticles(articles, main,location1)
+     appendArticles(articles,main,location1)
     
 
   })
   .catch((er)=>{
   console.log('er:', er)
+})
+   }
 
-  })
+
+  
 
 
 
