@@ -22,6 +22,26 @@ router.get("/users/:id", async(req,res)=>{
         return res.status(500).send({message: err.message});
     }
 })
+router.patch("/users/:id", async(req,res)=>{
+    try{
+        const bank = await user_banking.findByIdAndUpdate(req.params.id,req.body,{
+            new: true
+        })
+        .lean()
+        .exec()
+        res.send(bank)
+    }catch(err){
+        return res.status(500).send({message: err.message});
+    }
+})
+router.delete("/users/:id", async(req,res)=>{
+    try{
+        const bank = await user_banking.findByIdAndDelete(req.params.id).lean().exec()
+        res.send(bank)
+    }catch(err){
+        return res.status(500).send({message: err.message});
+    }
+})
 
 // router.get("", async(req,res)=>{
 //     try{
