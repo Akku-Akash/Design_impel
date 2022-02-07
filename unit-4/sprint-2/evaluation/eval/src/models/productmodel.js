@@ -1,5 +1,5 @@
 const mongoose = require("mongoose")
-const bankingSchema = new mongoose.Schema(
+const userSchema = new mongoose.Schema(
     {
         first_name: {type : String, required: true},
         middle_name: {type : String, required: false},
@@ -17,4 +17,7 @@ const bankingSchema = new mongoose.Schema(
   timestamps: true,
     }
 );
-module.exports = mongoose.model("Banking", bankingSchema)
+
+
+
+module.exports = mongoose.model("Banking", userSchema)
