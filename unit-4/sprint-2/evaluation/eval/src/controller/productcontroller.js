@@ -6,9 +6,17 @@ const saving_banking = require("../models/productmodel")
 const fixed_banking = require("../models/productmodel")
 
 const router = express.Router();
-router.post("", async(req,res)=>{
+router.post("/users", async(req,res)=>{
     try{
-        const bank = await bank.Create(req.body)
+        const user = await user_banking.Create(req.body)
+        return res.status(201).send(user)
+    }catch(err){
+        return res.status(500).send({message: err.message});
+    }
+})
+router.get("/users/:id", async(req,res)=>{
+    try{
+        const bank = await user_banking.findById(req.params.id).lean().exec()
     }catch(err){
         return res.status(500).send({message: err.message});
     }
