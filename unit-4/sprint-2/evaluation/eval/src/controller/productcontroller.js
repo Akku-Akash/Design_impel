@@ -6,7 +6,7 @@ const saving_banking = require("../models/productmodel")
 const fixed_banking = require("../models/productmodel")
 
 const router = express.Router();
-router.post("/users", async(req,res)=>{
+router.post("", async(req,res)=>{
     try{
         const user = await user_banking.Create(req.body)
         return res.status(201).send(user)
@@ -14,6 +14,7 @@ router.post("/users", async(req,res)=>{
         return res.status(500).send({message: err.message});
     }
 })
+module.exports = router;
 router.get("/users/:id", async(req,res)=>{
     try{
         const bank = await user_banking.findById(req.params.id).lean().exec()
