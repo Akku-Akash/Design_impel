@@ -7,17 +7,19 @@ const router = express.Router();
 
 router.post(
     "",
-    body("firstname").isString().isLowercase().isLength({min:3, max:30}).withMessage("Enter the valid name"),
-    body("lastname").isString().isLowercase().isLength({min:3, max:30}).withMessage("Enter the valid name"),
+    body("firstName").isString().isLowercase().isLength({min:3, max:30}).withMessage("Enter the valid name"),
+    body("lastName").isString().isLowercase().isLength({min:3, max:30}).withMessage("Enter the valid name"),
     body("age").isAlphanumeric().isLength({min:1 , max:150}).withMessage("incorrect pattern"),
     body("email").isEmail().withMessage("Invalid E-Mail"),
+    body("profileImages").isURL().isString().isLength({min:1, max:30}).withMessage("Invalid Url"),
 
 
 async(req,res)=>{
     try{
-const errors = validationResult(req)
+    const errors = validationResult(req)
+    console.log(body("id"));
 if(!errors.isEmpty()){
-    return res.status(400).send({errors: errors.array})
+    return res.status(400).send({errors: errors.array()})
 }
 return res.send("users")
     }catch(err){
