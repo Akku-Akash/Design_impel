@@ -3,6 +3,7 @@ const {body, validationResult} = require("express-validator")
 const express = require("express")
 
 const User = require("../models/user.model");
+const { query } = require("express");
 
 
 
@@ -56,7 +57,24 @@ router.delete("/:id", async(req,res)=>{
     }
 })
 
+const querry = require("express")
+// user can see 10 at the time
+router.get("", async(req,res)=>{
+    try{
+        const page = req.querry.page || 1
+        const size = req.querry.size ||10
+        const users = await User.find(query)
+        .skip((page-1)*size)
+        .limit(size).lean().exec()
+        const totalPages = Math.ceil(
+            (await User.find(querry).countDocuments())/size
+        );
+        return res.send({users, totalPages})
 
+    }catch(err){
+        return res.status(500).send({message: err.message})
+    }
+})
 
 
 
