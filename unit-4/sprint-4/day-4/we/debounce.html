@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            background-color: lightblue;
+            height: 700px;
+        }
+        #some{
+            cursor: pointer;
+        }
+        #div_st{
+            margin-top: -40%;
+            margin-left: 20%;
+            width: 40%;
+           height: 70%;
+            justify-content: center;
+            background-color: white;
+        }
+     
+    </style>
+</head>
+<body>
+    <div>
+    <h1>search movie here</h1>
+    <input oninput="debouncing(search,2000)" id="mov" type="text" placeholder="search mobvie here">
+    <div id="movies"></div>
+    <div id="details"></div>
+</div>
+</body>
+</html>
+<script>
+    let id;
+    let movie_div = document.getElementById("movies")
+    let details = document.getElementById("details")
+   let img = document.createElement("img")
+   async function search(){
+       try{
+let movie= document.getElementById("mov").value
+console.log('movie:', movie)
+
+
+if(movie.length<=1){
+    return false;
+}
+
+let response = await fetch(`http://www.omdbapi.com/?apikey=6a38c9a5&s=${movie}`)
+let data = await response.json()
+let movie_arr = data.Search
+appendmovie(movie_arr)
+       }catch(err){
+           console.log("err : ", err)
+       }
+   
+   }
+   function appendmovie(movie){
+       movie_div.innerHTML = null;
+       if(movie== undefined){
+           return false;
+       }
+        movie.forEach(function(arr){
+            let p = document.createElement("p")
+            p.innerText = arr.Title;
+            p.id = "some"
+            p.onclick = function(){
+                movie_div.innerHTML = null;
+                details.innerHTML = null;
+                let div = document.createElement("div")
+                div.id = "div_st"
+                img.src = arr.Poster
+            let name = document.createElement("h1")
+            name.innerText = arr.Title
+            let year = document.createElement("h2")
+            year.innerText = `year of Release - ${arr.Year}`
+            let type = document.createElement("p")
+            
+            type.innerText = `Type - ${arr.Type}`
+
+            
+                div.append(img,name,year,type)
+                details.append(div)
+
+            }
+            movie_div.append(p)
+        })
+    } 
+    function debouncing(func,delay){
+        if(id){
+            clearTimeout(id)
+        }
+        id = setTimeout(function(){
+            func()
+        },delay)
+    }
+</script>
