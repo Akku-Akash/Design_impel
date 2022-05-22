@@ -1,0 +1,38 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="btn">add</button>
+
+</body>
+</html>
+<script> 
+
+  const delaytime=(fn,delay)=>{
+      let last = 0
+     return (...args)=>{
+  const new_date = new Date().getTime()
+  if(new_date-last <delay){
+      return 
+  }
+  last = new_date;
+  return fn(...args)
+     }
+     consooe.log("akash")
+  }
+
+   document.getElementById("btn").addEventListener("click",delaytime(()=>{
+
+       console.log("you clicked me ! why...")
+      
+   },5000)
+   )
+       
+    
+</script>
