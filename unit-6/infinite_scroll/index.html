@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/index.css">
+</head>
+<body>
+    <div id="container"></div>
+</body>
+</html>
+<script>
+    let data = document.querySelector("#container")
+    
+
+let a = 1
+    const app =()=>{
+        
+        for(let i = 0; i<25; i++){
+            let h1 = document.createElement("h1")
+            h1.textContent = "Masai School"+ " " + a++
+            data.append(h1)
+        }
+    }
+    data.append("akash")
+    app()
+    data.addEventListener("scroll", function(){
+        
+            app()
+        
+    })
+</script>
