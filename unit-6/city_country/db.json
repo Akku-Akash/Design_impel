@@ -1,0 +1,29 @@
+{
+  "country": [
+    {
+      "country": "india",
+      "id": 1
+    },
+    {
+      "country": "india",
+      "id": 2
+    }
+  ],
+  "city": [
+    {
+      "city": "kolkata",
+      "population": "50000",
+      "id": 6
+    },
+    {
+      "city": "meerut",
+      "population": "100000",
+      "id": 7
+    },
+    {
+      "city": "delhi",
+      "population": "150000",
+      "id": 8
+    }
+  ]
+}
