@@ -1,0 +1,44 @@
+{
+  "todos": [
+    {
+      "title": "have tea",
+      "status": false,
+      "id": 1
+    },
+    {
+      "title": "football",
+      "status": true,
+      "id": 2
+    },
+    {
+      "title": "akash is playing",
+      "status": false,
+      "id": 3
+    },
+    {
+      "title": "learn redux",
+      "status": true,
+      "id": 4
+    },
+    {
+      "title": "learn react",
+      "status": false,
+      "id": 5
+    },
+    {
+      "title": "z",
+      "status": false,
+      "id": 6
+    },
+    {
+      "title": "fg",
+      "status": false,
+      "id": 7
+    },
+    {
+      "title": "hg",
+      "status": false,
+      "id": 8
+    }
+  ]
+}
