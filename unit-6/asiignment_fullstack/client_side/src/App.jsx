@@ -1,5 +1,6 @@
 
 import './App.css';
+import Data from './component/Data';
 
 
 function App() {
@@ -7,6 +8,7 @@ function App() {
   return (
     <div className="app">
      <h1>Hello</h1>
+     <Data/>
     </div>
   );
 }
