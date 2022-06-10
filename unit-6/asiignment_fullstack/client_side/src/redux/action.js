@@ -14,7 +14,7 @@ export const load_user = ()=>{
     return function (dispatch){
 
         axios.get("http://localhost:8080/products").then((res)=>{
-            dispatch(get_user(res.data))
+            dispatch(get_user(res.data.data))
         })
     }
 }

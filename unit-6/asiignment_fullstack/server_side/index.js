@@ -1,12 +1,13 @@
 const express = require("express")
 const connect = require("./configs/db")
-
+const  cors = require(("cors"))
 const usercontroller = require("./controller/userController")
 
 
 const app = express()
 
 app.use(express.json())
+app.use(cors())
 //app.use(express.urlencoded({ extended: false }));
 //app.use(morgan('dev'));
 
