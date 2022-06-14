@@ -10,11 +10,11 @@ export const get_user = (users)=>({
     payload : users
 })
 
-export const load_user = ()=>{
+export const load_user = (page,sort)=>{
     return function (dispatch){
 
-        axios.get("http://localhost:8080/products").then((res)=>{
-            dispatch(get_user(res.data.data))
+        axios.get(`http://localhost:8080/products?${sort.type}=${sort.action}&page=${page}`).then((res)=>{
+            dispatch(get_user(res.data))
         })
     }
 }
