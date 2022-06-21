@@ -1,0 +1,23 @@
+{
+  "name": "user-api-test",
+  "version": "1.0.0",
+  "description": "1. Create an Express Server and Deploy it on port `8000`.\r 2. Create following API's on the server.\r    - GET `/` returns [HTML file](./src/assets/users.html).\r    - GET `/users` returns a [JSON file](./src/assets/user.json)\r    - GET `/users/:id`, matches id from [user.json file](./src/assets/user.json) and returns an Object.\r    - POST `/users` updates the [user.json file](./src/assets/user.json) and add new user to it.",
+  "main": "index.js",
+  "author": "masai-school",
+  "license": "ISC",
+  "scripts": {
+    "serve": "nodemon src/server.js",
+    "test": "jest --watchAll=false --bail --runInBand --forceExit"
+  },
+  "dependencies": {
+    "express": "^4.18.1",
+    "mongoose": "^6.4.0",
+    "nodemon": "^2.0.16",
+    "router": "^1.3.7"
+  },
+  "devDependencies": {
+    "jest": "^28.1.1",
+    "supertest": "^6.2.3"
+  },
+  "keywords": []
+}
