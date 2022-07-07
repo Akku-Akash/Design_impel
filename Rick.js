@@ -102,6 +102,7 @@ res.addEventListener("scroll",function(){
  }
 
  function box_item(arr){
+    last_box.innerHTML = null;
     let cut = document.createElement("p")
     cut.innerHTML = "✖";
     cut.id = "cut"
