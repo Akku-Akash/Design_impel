@@ -45,9 +45,7 @@ export default function Data() {
    
   return (
     <div>
-      <input type="text" onChange={(e)=>{
-                  setSearch(e.target.value)
-      }} />
+     
      <FormControl sx={{ m: 4, minWidth: 160 }} size="small">
           <InputLabel id="demo-select-small"> Sort By Price</InputLabel>
           <Select

@@ -8,7 +8,6 @@ const  Products  = require('../models/user.model')
 router.get('/products', async (req, res, next) => {
   try {
    
-
     let data = await Products.find();
       let sortBy = req.query || null;  
       let filters = req.query || null;
@@ -73,7 +72,6 @@ router.get('/products/: id', async (req, res, next) => {
     const products = await Products.findById(req.params.id)
     res.status(200).json({
       status : 'success',
-
       data : products
     });
   } catch (error) {
